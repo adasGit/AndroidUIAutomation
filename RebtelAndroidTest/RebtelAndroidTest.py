@@ -134,7 +134,7 @@ class RebtelAndroidTest(unittest.TestCase):
         time.sleep(5)
         el = self.driver.find_element_by_xpath("//android.widget.Button[@resource-id='com.rebtel.android:id/next_button']")
         el.click()
-        time.sleep(2)
+        time.sleep(1)
 
         writeInfo('Hang up ...')
         el = self.driver.find_element_by_xpath("//android.widget.ImageView[@resource-id='com.rebtel.android:id/hangupButton']")
@@ -153,6 +153,6 @@ class RebtelAndroidTest(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(RebtelAndroidTest)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.TextTestRunner(verbosity=2).run(suite)
     # Activate the following line in order to have JUnit output. And deactivate the above line please.
-    # xmlrunner.XMLTestRunner().run(suite)
+    xmlrunner.XMLTestRunner().run(suite)
