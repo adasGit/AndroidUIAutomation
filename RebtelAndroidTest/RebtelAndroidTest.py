@@ -131,7 +131,7 @@ class RebtelAndroidTest(unittest.TestCase):
         writeInfo('Call ...')
         el = self.driver.find_element_by_xpath("//android.widget.ImageButton[@resource-id='com.rebtel.android:id/button14']")
         el.click()
-        time.sleep(5)
+        time.sleep(1)
         el = self.driver.find_element_by_xpath("//android.widget.Button[@resource-id='com.rebtel.android:id/next_button']")
         el.click()
         time.sleep(1)
