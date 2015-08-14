@@ -11,7 +11,7 @@ from appium.webdriver.common.touch_action import TouchAction
 
 def writeInfo(text):
     ''''Printing timestamped activity message.'''
-    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ' - ' + text)
+    print('\n' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ' - ' + text)
 
 class RebtelAndroidTest(unittest.TestCase):
     @classmethod
