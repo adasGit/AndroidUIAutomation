@@ -153,6 +153,6 @@ class RebtelAndroidTest(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(RebtelAndroidTest)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    # unittest.TextTestRunner(verbosity=2).run(suite)
     # Activate the following line in order to have JUnit output. And deactivate the above line please.
-    # xmlrunner.XMLTestRunner().run(suite)
+    xmlrunner.XMLTestRunner().run(suite)
