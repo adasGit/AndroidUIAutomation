@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b1fd58a2-222a-4d49-90ba-90c564609097</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RebtelAndroidTest.py</StartupFile>
+    <StartupFile>Program.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Device.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="RebtelAndroidTest.py" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,17 +1,7 @@
-import os
-import time
-import unittest
-import xmlrunner
-import traceback
-
 from appium import webdriver
-from datetime import datetime
-from appium.webdriver.common.touch_action import TouchAction
+from Common import *
+from Device import *
 
-
-def writeInfo(text):
-    ''''Printing timestamped activity message.'''
-    print('\n' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ' - ' + text)
 
 class RebtelAndroidTest(unittest.TestCase):
     @classmethod
@@ -19,14 +9,16 @@ class RebtelAndroidTest(unittest.TestCase):
         writeInfo('Setting up device ...')
         try:
             desired_caps = {}
-            desired_caps['platformName'] = 'Android'
-            desired_caps['platformVersion'] = '4.4.2'
-            desired_caps['udid'] = 'LC4BRYE00659'
-            desired_caps['deviceName'] = 'HTC Desire'
-            desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__),'app/com.rebtel.android.apk'))
-            desired_caps['appPackage'] = 'com.rebtel.android'
-            desired_caps['appActivity'] = '.client.RebtelActivity'
-            self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+            desired_caps['platformName'] = device._platformName
+            desired_caps['platformVersion'] = device._platformVersion
+            desired_caps['udid'] = device._udid
+            desired_caps['deviceName'] = device._deviceName
+            desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__),'app/' + device._app))
+            desired_caps['appPackage'] = device._appPackage
+            desired_caps['appActivity'] = device._appActivity
+            host = 'localhost'
+            port = '4723'
+            self.driver = webdriver.Remote('http://'+ host +':'+ port +'/wd/hub', desired_caps)
         except:
             writeInfo('Failed to Setup device!')
             traceback.print_exc()
@@ -151,8 +143,6 @@ class RebtelAndroidTest(unittest.TestCase):
             phoneNumber = None
         self.assertEqual(phoneNumber, '+8801717379480', "Dialed phone number doesn't exist in the Recent menu!")
 
-if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(RebtelAndroidTest)
-    # unittest.TextTestRunner(verbosity=2).run(suite)
-    # Activate the following line in order to have JUnit output. And deactivate the above line please.
-    xmlrunner.XMLTestRunner().run(suite)
+
+if __name__ == 'RebtelAndroidTest':
+    device = Device.getDevice('RebtelAndroidTest')
