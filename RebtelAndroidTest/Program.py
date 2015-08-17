@@ -40,9 +40,9 @@ class Program(Device):
 
     def runTest(self):
         suite = unittest.TestLoader().loadTestsFromTestCase(self.getSuite(self.cRoot.get('suite')))
-        # unittest.TextTestRunner(verbosity=2).run(suite)
+        unittest.TextTestRunner(verbosity=2).run(suite)
         # Activate the following line in order to have JUnit output. And deactivate the above line please.
-        xmlrunner.XMLTestRunner().run(suite)
+        # xmlrunner.XMLTestRunner().run(suite)
 
 
 
