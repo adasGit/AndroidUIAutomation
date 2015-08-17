@@ -13,6 +13,7 @@ class RebtelAndroidTest(unittest.TestCase):
             desired_caps['platformVersion'] = device._platformVersion
             desired_caps['udid'] = device._udid
             desired_caps['deviceName'] = device._deviceName
+            ''' The absolute local path or remote http URL to an .ipa or .apk file. '''
             desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__),'app/' + device._app))
             desired_caps['appPackage'] = device._appPackage
             desired_caps['appActivity'] = device._appActivity

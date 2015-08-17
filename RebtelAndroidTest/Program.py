@@ -20,7 +20,6 @@ class Program(Device):
         appPackage = self.cRoot.find('./device/appPackage').text
         appActivity = self.cRoot.find('./device/appActivity').text
         ''' Initialize a Device.'''
-        #self.setDevice(suite, platformName, platformVersion, udid, deviceName, app, appPackage, appActivity)
         Device.setDevice(suite, platformName, platformVersion, udid, deviceName, app, appPackage, appActivity)
 
 
@@ -40,9 +39,9 @@ class Program(Device):
 
     def runTest(self):
         suite = unittest.TestLoader().loadTestsFromTestCase(self.getSuite(self.cRoot.get('suite')))
-        unittest.TextTestRunner(verbosity=2).run(suite)
+        # unittest.TextTestRunner(verbosity=2).run(suite)
         # Activate the following line in order to have JUnit output. And deactivate the above line please.
-        # xmlrunner.XMLTestRunner().run(suite)
+        xmlrunner.XMLTestRunner().run(suite)
 
 
 
