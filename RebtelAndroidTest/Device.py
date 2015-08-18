@@ -1,6 +1,10 @@
-from Common import *
+from builtins import dict
 
 class Device(object):
+
+    global device 
+    device = dict()
+
     def __init__(self, platformName=None, platformVersion=None, udid=None, deviceName=None, app=None, appPackage=None, appActivity=None):
         self._platformName = platformName
         self._platformVersion = platformVersion
@@ -11,9 +15,9 @@ class Device(object):
         self._appActivity = appActivity
 
 
-    def setDevice(suite, platformName, platformVersion, udid, deviceName, app, appPackage, appActivity):
+    def setDevice(self, suite, platformName, platformVersion, udid, deviceName, app, appPackage, appActivity):
         device[suite] = Device(platformName, platformVersion, udid, deviceName, app, appPackage, appActivity)
 
 
-    def getDevice(suite):
+    def getDevice(self, suite):
         return device[suite]

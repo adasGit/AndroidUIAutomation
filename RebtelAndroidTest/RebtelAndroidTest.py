@@ -1,6 +1,6 @@
-from appium import webdriver
 from Common import *
 from Device import *
+from appium import webdriver
 
 
 class RebtelAndroidTest(unittest.TestCase):
@@ -8,7 +8,7 @@ class RebtelAndroidTest(unittest.TestCase):
     def setUpClass(self):
         writeInfo('Setting up device ...')
         try:
-            desired_caps = {}
+            desired_caps = dict()
             desired_caps['platformName'] = device._platformName
             desired_caps['platformVersion'] = device._platformVersion
             desired_caps['udid'] = device._udid
@@ -17,6 +17,7 @@ class RebtelAndroidTest(unittest.TestCase):
             desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__),'app/' + device._app))
             desired_caps['appPackage'] = device._appPackage
             desired_caps['appActivity'] = device._appActivity
+            ''' ToDo: collect appiumHost & appiumPort from config. '''
             host = 'localhost'
             port = '4723'
             self.driver = webdriver.Remote('http://'+ host +':'+ port +'/wd/hub', desired_caps)
@@ -146,4 +147,6 @@ class RebtelAndroidTest(unittest.TestCase):
 
 
 if __name__ == 'RebtelAndroidTest':
-    device = Device.getDevice('RebtelAndroidTest')
+    ''' Recruit the intended device to run at. '''
+    d = Device()
+    device = d.getDevice('RebtelAndroidTest')

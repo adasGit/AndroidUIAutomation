@@ -4,9 +4,7 @@ import traceback
 import unittest
 import xmlrunner
 from datetime import datetime
-from builtins import dict
 
-device = dict()
 
 def writeInfo(text):
     ''''Printing timestamped activity message.'''
